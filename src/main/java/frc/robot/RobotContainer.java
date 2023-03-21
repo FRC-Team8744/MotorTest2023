@@ -109,10 +109,12 @@ final JoystickButton buttonX = new JoystickButton(gamepad, 3);
 buttonX.onTrue(new VelocityMode(500.0, m_motorSub).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
                         
 final JoystickButton buttonB = new JoystickButton(gamepad, 2);        
-buttonB.onTrue(new PositionMode(0.5, m_motorSub).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
+// buttonB.onTrue(new PositionMode(0.5, m_motorSub).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
+buttonB.onTrue(new Move_Simple_Profiled(5.0, m_motorSub).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
                         
 final JoystickButton buttonA = new JoystickButton(gamepad, 1);        
-buttonA.onTrue(new PositionMode(-0.5, m_motorSub).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
+// buttonA.onTrue(new PositionMode(-0.5, m_motorSub).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
+buttonA.onTrue(new Move_Simple_Profiled(-5.0, m_motorSub).withInterruptBehavior(InterruptionBehavior.kCancelSelf));
                         
 
 

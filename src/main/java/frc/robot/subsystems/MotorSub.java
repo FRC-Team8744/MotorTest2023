@@ -172,12 +172,16 @@ motorControllerSpin1.burnFlash();
         motorControllerSpin1.stopMotor();
     }
 
+    public double getPosition() {
+        return m_encoder.getPosition();
+    }
+
     public void setPositionGoal(double PGoal) {
         // Reset encoder (so test stand doesn't overrun)
         // m_encoder.setPosition(0.0);  // NEVER DO THIS!
         // Enable PID
         // PID coefficients
-        kP = 0.0001; 
+        kP = 0.8; //0.0001; 
         kI = 0; //1e-4;
         kD = 0; //1; 
         kIz = 0; 
@@ -229,10 +233,10 @@ motorControllerSpin1.burnFlash();
          *  com.revrobotics.CANSparkMax.ControlType.kVelocity
          *  com.revrobotics.CANSparkMax.ControlType.kVoltage
          */
-        // m_pidController.setReference(PGoal, CANSparkMax.ControlType.kPosition);
-        // SmartDashboard.putString("Mode", "Position");
-        m_pidController.setReference(PGoal, CANSparkMax.ControlType.kSmartMotion);
-        SmartDashboard.putString("Mode", "SmartPosition");
+        m_pidController.setReference(PGoal, CANSparkMax.ControlType.kPosition);
+        SmartDashboard.putString("Mode", "Position");
+        // m_pidController.setReference(PGoal, CANSparkMax.ControlType.kSmartMotion);
+        // SmartDashboard.putString("Mode", "SmartPosition");
         SmartDashboard.putNumber("Setpoint", PGoal);
     }
 
